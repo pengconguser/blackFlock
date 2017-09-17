@@ -13,7 +13,7 @@ this is my demo app.
 
 clone之后 首先运行。
 
-composer install
+composer install</br>
 npm install
 
 之后根据你本地的情况来配置服务器,加载你的应用.
