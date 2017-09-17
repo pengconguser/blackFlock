@@ -8,3 +8,12 @@
 </p>
 
 this is my demo app.
+
+一个简单的类似于博客的网页，还在开发当中.
+
+clone之后 首先运行。
+
+composer install
+npm install
+
+之后根据你本地的情况来配置服务器,加载你的应用.
