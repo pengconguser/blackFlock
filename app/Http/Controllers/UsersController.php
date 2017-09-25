@@ -4,18 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __constction()
-    {
-        $this->middware('auth', expet(['index']));
-    }
     public function index()
     {
         //
