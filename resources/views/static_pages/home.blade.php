@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="jumbotron">
-    <h1>peng article</h1>
+    <h1>peng</h1>
     <p class="lead">
       你现在所看到的是 <a href="https://fsdhub.com/books/laravel-essential-training-5.1">peng的小文章</a> 主页。
     </p>

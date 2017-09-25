@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -91,5 +92,10 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function gravatar($size = '100')
+    {
+        $hash = md5(strtolower(trim($this->attributes['email'])));
+        return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
 }
