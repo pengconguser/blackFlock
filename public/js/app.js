@@ -41917,14 +41917,14 @@ if (Component.options.functional) {console.error("[vue-loader] Example.vue: func
 
 /* hot reload */
 if (false) {(function () {
-  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), false)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-69d9c7a6", Component.options)
+    hotAPI.createRecord("data-v-f2cec08e", Component.options)
   } else {
-    hotAPI.reload("data-v-69d9c7a6", Component.options)
+    hotAPI.reload("data-v-f2cec08e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42099,7 +42099,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-69d9c7a6", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-f2cec08e", module.exports)
   }
 }
 
