@@ -10,6 +10,7 @@
             </h5>
         </div>
             <div class="panel-body">
+                @include('shared._errors')
                 {!! Form::open(['method' => 'POST', 'route' => 'users.store', 'class' => 'form-horizontal']) !!}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {!! Form::label('name', '账号名') !!}

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -35,14 +35,20 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-           'name'=>'required|min:3|max:50',
-           'email' => 'required|email|unique:users|max:255',
-           'password' => 'confirmed',
+        $this->validate($request, [
+            'name'     => 'required|min:3|max:50',
+            'email'    => 'required|email|unique:users|max:255',
+            'password' => 'confirmed',
         ]);
-        return;
-    }
 
+        $user           = new User($request->all());
+        $user->password = bcrypt($user->password);
+        $user->save();
+        $id = $user->id;
+
+        session()->flash('success', '恭喜你注册成功');
+        return redirect()->route('users.show', [$id]);
+    }
     /**
      * Display the specified resource.
      *
@@ -51,7 +57,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user=User::find($id);
+        $user = User::find($id);
         return view('user.show')->withUser($user);
     }
 
