@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -46,11 +47,12 @@ class UsersController extends Controller
         $user->save();
         $id = $user->id;
 
+        Auth::login($user);
         session()->flash('success', '恭喜你注册成功');
         return redirect()->route('users.show', [$id]);
     }
     /**
-     * Display the specified resource.
+     * Display the specified resource.  
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -92,6 +94,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Auth::logout();
+        session()->flash('success','您已成功退出');
+        return redirect('login');
     }
 }
