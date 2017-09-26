@@ -35,17 +35,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::fistOrNew([
-            'name' => $request->name,
+        $this->validate($request,[
+           'name'=>'required|min:3|max:50',
+           'email' => 'required|email|unique:users|max:255',
+           'password' => 'confirmed',
         ]);
-        if ($user->name) {
-            return abort(403);
-        }
-        $user_name      = bcrypt($request->name);
-        $user->password = $user_name;
-        $user->emil=$request->emil;
-        $user->save();
-        return redirect()->to('/home');
+        return;
     }
 
     /**
@@ -92,10 +87,5 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function gravatar($size = '100')
-    {
-        $hash = md5(strtolower(trim($this->attributes['email'])));
-        return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
 }
