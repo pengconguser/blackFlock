@@ -1,8 +1,5 @@
 @extends('layouts.default')
-
-@section('title')
-  修改资料
-@stop
+@section('title', '更新个人资料')
 
 @section('content')
 <div class="col-md-offset-2 col-md-8">
@@ -19,38 +16,41 @@
                     <img alt="{{ $users->name }}" class="gravatar" src="{{ $users->gravatar('200') }}"/>
                 </a>
             </div>
-            {!! Form::open(['method' => 'POST', 'route' => ['users.update','$user->id'], 'class' => 'form-horizontal']) !!}
-            
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    {!! Form::label('name', '用户名字') !!}
-                    {!! Form::text('name', $users->name, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('name') }}</small>
+            <form action="{{ route('users.update', $users->id )}}" method="POST">
+                {{ method_field('PATCH') }}
+            {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="name">
+                        名称：
+                    </label>
+                    <input class="form-control" name="name" type="text" value="{{ $users->name }}">
+                    </input>
                 </div>
-
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    {!! Form::label('email', '邮箱') !!}
-                    {!! Form::text('email', $users->email, ['class' => 'form-control', 'required' => 'required','disabled']) !!}
-                    <small class="text-danger">{{ $errors->first('email') }}</small>
+                <div class="form-group">
+                    <label for="email">
+                        邮箱：
+                    </label>
+                    <input class="form-control" disabled="" name="email" type="text" value="{{ $users->email }}">
+                    </input>
                 </div>
-
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    {!! Form::label('password', '密码') !!}
-                    {!! Form::text('password', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('password') }}</small>
+                <div class="form-group">
+                    <label for="password">
+                        密码：
+                    </label>
+                    <input class="form-control" name="password" type="password" value="{{ old('password') }}">
+                    </input>
                 </div>
-
-                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                    {!! Form::label('password_confirmation', '确认密码') !!}
-                    {!! Form::text('password_confirmation', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('password_confirmation') }}</small>
+                <div class="form-group">
+                    <label for="password_confirmation">
+                        确认密码：
+                    </label>
+                    <input class="form-control" name="password_confirmation" type="password" value="{{ old('password_confirmation') }}">
+                    </input>
                 </div>
-
-            
-                <div class="btn-group pull-right">
-                    {!! Form::submit("确认修改", ['class' => 'btn btn-success']) !!}
-                </div>
-            
-            {!! Form::close() !!}
+                <button class="btn btn-primary" type="submit">
+                    更新
+                </button>
+            </form>
         </div>
     </div>
 </div>

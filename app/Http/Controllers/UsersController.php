@@ -13,6 +13,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+         $this->middleware('auth', [            
+            'except' => ['show', 'create', 'store']
+        ]);
+    }
     public function index()
     {
         //
@@ -73,6 +78,7 @@ class UsersController extends Controller
     {
        $users=User::find($id);
         if($users){
+            $this->authorize('update', $users);
              return view('user.edit')->withUsers($users);
         }
     }
@@ -86,7 +92,21 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($id);
+        $this->validate($request,[
+           'name'=>'required|max:50',
+           'password' => 'nullable|confirmed|min:6',
+        ]);
+
+        $this->authorize('update', $user);
+        if($request->password){
+        $user->password=bcrypt($request->password);
+          }
+        $user->name=$request->name;
+        $user->update();
+          
+        session()->flash('success','恭喜你,资料修改成功');
+        return redirect()->route('users.show',$user->id);
     }
 
     /**
@@ -97,8 +117,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        Auth::logout();
-        session()->flash('success','您已成功退出');
-        return redirect('login');
+       
     }
 }

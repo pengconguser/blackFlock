@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
+    public function __construct()
+    {
+
+    }
     public function create()
     {
         return view('sessions.create');
@@ -32,6 +36,8 @@ class SessionsController extends Controller
     }
     public function destroy()
     {
-        //code
+        Auth::logout();
+        session()->flash('success','您已成功退出');
+        return redirect('login');
     }
 }

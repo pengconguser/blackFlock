@@ -16,7 +16,7 @@
                 <li class="divider"></li>
                 <li>
                   <a id="logout" href="#">
-                    <form action="logout" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                       <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
