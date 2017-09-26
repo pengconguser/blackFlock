@@ -71,7 +71,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+       $users=User::find($id);
+        if($users){
+             return view('user.edit')->withUsers($users);
+        }
     }
 
     /**
