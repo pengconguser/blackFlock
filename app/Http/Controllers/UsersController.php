@@ -17,6 +17,9 @@ class UsersController extends Controller
          $this->middleware('auth', [            
             'except' => ['show', 'create', 'store','index']
         ]);
+          $this->middleware('is_admin', [            
+            'except' => ['show', 'create', 'store','index','edit','update']
+        ]);
     }
     public function index()
     {
@@ -118,6 +121,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-       
+        $user=User::find($id);
+        if($user){
+            $user->delete();
+            return redirect()->to('/users');
+        }
     }
 }
