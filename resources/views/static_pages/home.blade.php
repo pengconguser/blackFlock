@@ -4,7 +4,7 @@
   <div class="jumbotron">
     <h1>peng</h1>
     <p class="lead">
-      你现在所看到的是 <a href="https://fsdhub.com/books/laravel-essential-training-5.1">peng的小文章</a> 主页。
+      你现在所看到的是 <a href="https://haxibiao.com">peng的小文章</a> 主页。
     </p>
     <p>
       一切，将从这里开始。
