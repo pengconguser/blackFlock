@@ -22,7 +22,7 @@ class UsersSeeder extends Seeder
         $user->is_admin = true;
         $user->save();
 
-        $user_name=User::irstOrNew([
+        $user_name=User::firstOrNew([
             'name' => '聪哥女装最棒',
         ]);
         $user_name->name='我是你隔壁老王啊';
