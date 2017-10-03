@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Status;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 
+        'email', 
+        'password',
     ];
 
     /**
@@ -31,5 +34,13 @@ class User extends Authenticatable
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=$size";
+    }
+
+    public function statuses(){
+        return $this->hasMany(Status::class);
+    }
+
+    public function feed(){
+        return $this->statuses()->orderBy('created_at','desc');
     }
 }

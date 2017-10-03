@@ -69,7 +69,11 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('user.show')->withUser($user);
+        $statuses=$user->statuses()
+                       ->orderBy('created_at','desc')
+                       ->paginate(30);
+
+        return view('user.show')->withUser($user)->withStatuses($statuses);
     }
 
     /**
