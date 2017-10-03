@@ -27,3 +27,11 @@ Route::delete('logout','SessionsController@destroy')->name('logout');
 
 //用户动态控制,这里only可以只生成store和destroy方法
 Route::resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
+
+//用户关注情况的路由
+Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');//显示用户关注的人列表
+Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');//显示用户的粉丝列表
+
+//用户关注与取消关注的路由
+Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');

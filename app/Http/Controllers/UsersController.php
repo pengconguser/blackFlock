@@ -18,7 +18,7 @@ class UsersController extends Controller
             'except' => ['show', 'create', 'store','index']
         ]);
           $this->middleware('is_admin', [            
-            'except' => ['show', 'create', 'store','index','edit','update']
+            'except' => ['show', 'create', 'store','index','edit','update','followings','followers']
         ]);
     }
     public function index()
@@ -130,5 +130,19 @@ class UsersController extends Controller
             $user->delete();
             return redirect()->to('/users');
         }
+    }
+
+    public function followings(User $user)
+    {
+        $users=$user->followings()->paginate(30);
+        $title='关注的人';
+        return view('user.show_follow',compact('users','title'));
+    }
+
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(30);
+        $title = '粉丝';
+        return view('user.show_follow',compact('users','title'));
     }
 }
