@@ -21,5 +21,9 @@ class UsersSeeder extends Seeder
         $user->password = bcrypt('li940809');
         $user->is_admin = true;
         $user->save();
+
+        $user_name=User::where('name','聪哥女装最棒')->get();
+        $user_name->name='我是你隔壁老王啊';
+        $user_name->update();
     }
 }
