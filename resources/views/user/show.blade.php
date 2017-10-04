@@ -21,7 +21,7 @@
       @if (count($statuses) > 0)
         <ol class="statuses">
           @foreach ($statuses as $status)
-            @include('statuses._status')
+            @include('statuses._status',['user' => $user])
           @endforeach
         </ol>
         {!! $statuses->render() !!}

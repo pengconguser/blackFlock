@@ -6,7 +6,7 @@
 </form>
 
 {{-- 成功弹出提示窗口 --}}
-@if(session('status'))
+{{-- @if(session('status'))
 <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
  <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -40,4 +40,4 @@
  $('#myModal').modal('show')
 </script>
 
-@endif
+@endif --}}

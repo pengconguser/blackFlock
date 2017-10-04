@@ -8,7 +8,7 @@
   <span class="timestamp">
     {{ $status->created_at->diffForHumans() }}
   </span>
-      @if(Auth::check())
+      @if(Auth::user()->id==$user->id)
        {!! Form::open(['method' => 'DELETE', 'route' => ['statuses.destroy',$status->id], 'class' => 'form-horizontal']) !!}      
            <div class="btn-group pull-right">
                {!! Form::submit("删除", ['class' => 'btn btn-success']) !!}
