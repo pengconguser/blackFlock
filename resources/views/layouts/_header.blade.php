@@ -6,6 +6,7 @@
         <ul class="nav navbar-nav navbar-right">
           @if (Auth::check())
             <li><a href="/users">用户列表</a></li>
+            <li><a href="/article">小博客</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 {{ Auth::user()->name }} <b class="caret"></b>
@@ -26,6 +27,7 @@
               </ul>
             </li>
           @else
+          <li><a href="/article">小博客</a></li>
           <li><a href="/help">帮助</a></li>
           <li><a href="/login">登录</a></li>
           @endif

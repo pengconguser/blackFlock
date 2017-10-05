@@ -35,3 +35,6 @@ Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.
 //用户关注与取消关注的路由
 Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
 Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
+
+//小博客模块,用来记录我自己写的一些小博客
+Route::resource('/article','ArticleController');
