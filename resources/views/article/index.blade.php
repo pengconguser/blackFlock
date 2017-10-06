@@ -6,13 +6,16 @@
 
 @section('content')
     <div class="container">
+       @include('shared._errors')
        <div class="col-md-8">
          <div class="panel panel-info">
          	<div class="panel-heading">
          		<h3 class="panel-title">最新的一些小文章</h3>
          	</div>
          	<div class="panel-body">
-         	     数据还没添加，先写前端代码啦。。。
+         	    @foreach($articles as $article)
+         	      <a href="/article/{{ $article->id }}">{{ $article->title }}</a>
+         	    @endforeach
          	</div>	
          </div>
        </div>

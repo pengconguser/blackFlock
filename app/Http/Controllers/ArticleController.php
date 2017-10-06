@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class ArticleController extends Controller
 {
@@ -13,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article.index');
+        $articles=Article::orderBy('created_at','desc')->paginate(10);
+        return view('article.index')->withArticles($articles);
     }
 
     /**
@@ -34,7 +36,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request,[
+            'title'=>'required|max:20',
+            'author'=>'required',
+            'content'=>'required',
+        ]);
+
+        $articles= new Article($request->all());
+        $articles->save();
+        session()->flash('success','新的小博客已经创建成功！');
+        return redirect('/article');
     }
 
     /**
