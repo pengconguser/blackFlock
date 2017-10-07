@@ -7,6 +7,9 @@ use App\Article;
 
 class ArticleController extends Controller
 {
+    public function __construct(){
+            $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles=Article::orderBy('created_at','desc')->paginate(10);
-        return view('article.index')->withArticles($articles);
+        $data=[];
+        $data['hits']=Article::orderBy('hits','desc')->paginate(5);
+        return view('article.index')->withArticles($articles)->withData($data);
     }
 
     /**
@@ -57,7 +62,15 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article=Article::find($id);
+            if($article->hits)
+            {  
+            $hit=$article->hits;          //该方法被调用默认文章受到了一次点击.
+            $hit++;
+            $article->hits=$hit;
+            $article->update();
+            } 
+        return view('article.show')->withArticle($article);
     }
 
     /**

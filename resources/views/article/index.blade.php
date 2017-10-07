@@ -14,7 +14,7 @@
          	</div>
          	<div class="panel-body">
          	    @foreach($articles as $article)
-         	      <a href="/article/{{ $article->id }}">{{ $article->title }}</a>
+         	      @include('article.layouts._article')
          	    @endforeach
          	</div>	
          </div>
