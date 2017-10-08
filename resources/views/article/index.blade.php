@@ -26,7 +26,9 @@
         			<h3 class="panel-title">热门的小博客哦！</h3>
         		</div>
         		<div class="panel-body">
-        			这里会放置一些热门文章的标题
+        			@foreach($data['hits'] as $da)
+                        <a href="/article/{{ $da->id }}">{{ $da->title }}</a>
+                    @endforeach
         		</div>
         	</div>
         </div>
