@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -81,7 +82,19 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+         $user=Auth::user();
+         $reult=$id==$user->id;
+         $admin=$user->is_admin;
+          if($reult || $admin)
+          {
+             $article=Article::find($id);
+             return view('article.edit')->withArticle($article);
+          }
+          else
+          {
+            session()->flash('warning','你没有权限编辑这篇文章');
+            return redirect('/article');
+          }
     }
 
     /**
@@ -93,7 +106,18 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article=Article::find($id);
+        if($article)
+        {
+          $article->title=$request->title;
+          $article->content=$request->content;
+          $article->update();
+          session()->flash('success','编辑成功!');
+          return redirect('/article');
+        }else
+        {
+            return redirect('/aritlce');
+        }
     }
 
     /**
@@ -104,6 +128,21 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $user=Auth::user();
+         $article=Article::find($id);
+         $reult=$article->user_id==$user->id;
+         $admin=$user->is_admin;
+         if($admin || $reult)
+         {
+            $article->delete();
+            session()->flash('success','删除成功！');
+            return redirect('/article');
+         }
+         else
+         {
+            session()->flash('warning','删除失败,可能是权限问题');
+            return redirect('/article');
+         }
+
     }
 }

@@ -27,7 +27,13 @@
         		</div>
         		<div class="panel-body">
         			@foreach($data['hits'] as $da)
-                        <a href="/article/{{ $da->id }}">{{ $da->title }}</a>
+                         <div class="list-group">
+                             <a href="/article/{{ $da->id }}" class="list-group-item active">
+                                 <h4 class="list-group-item-heading">{{ $da->title }}</h4>
+                                 <p class="list-group-item-text">{{ str_limit(strip_tags($da->content),50) }}</p>
+                             </a>
+                         </div>
+                    <hr>
                     @endforeach
         		</div>
         	</div>

@@ -24,9 +24,25 @@
     			<!-- content -->
     			<div class="table">
                    <div class="panel-heading">
+                    <p>
                      {{ $article->content }}
+                    </p>
                    </div>
                 </div>
     	     </div>
+                  {!! Form::open(['method' => 'GET', 'route' => ['article.edit',$article->id], 'class' => 'form-horizontal']) !!}
+      <div class="btn-group pull-right">
+              {!! Form::submit("编辑", ['class' => 'btn btn-info']) !!}
+          </div>
+      
+      {!! Form::close() !!}
+      {!! Form::open(['method' => 'DELETE', 'route' => ['article.destroy',$article->id], 'class' => 'form-horizontal']) !!}
+
+          <div class="btn-group pull-right">
+              {!! Form::submit("删除", ['class' => 'btn btn-success']) !!}&nbsp;
+          </div>
+      
+      {!! Form::close() !!}
+        </div>
     </div>
 @stop
