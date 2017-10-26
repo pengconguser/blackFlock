@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" style="height: 20px">
   <div class="container">
     <div class="col-md-offset-1 col-md-10">
       <a href="/" id="logo">peng App</a>
@@ -18,7 +18,7 @@
                     <form action="{{ route('logout') }}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
-                      <button class="btn btn-block btn-danger" type="submit" name="button">退出登录</button>
+                      <button class="btn btn-sm btn-danger" type="submit" name="button">退出登录</button>
                     </form>
                   </a>
                 </li>
