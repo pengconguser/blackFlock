@@ -10,22 +10,22 @@
     	<div class="col-md-9">
     		<div class="panel panel-default">
     			<!-- Default panel contents -->
-    	
+
     			<div class="panel-heading text-center">
-    		      <h3>		
+    		      <h3>
 	                 {{$article->title  }}
     			  </h3>
     		    </div>
-    		 
+
     			<div class="panel-body">
     				作者：{{ $article->author }}
     			</div>
-    		
+
     			<!-- content -->
     			<div class="table">
                    <div class="panel-heading">
                     <p>
-                     {{ $article->content }}
+                     {!! $article->content !!}
                     </p>
                    </div>
                 </div>
@@ -34,14 +34,14 @@
       <div class="btn-group pull-right">
               {!! Form::submit("编辑", ['class' => 'btn btn-info']) !!}
           </div>
-      
+
       {!! Form::close() !!}
       {!! Form::open(['method' => 'DELETE', 'route' => ['article.destroy',$article->id], 'class' => 'form-horizontal']) !!}
 
           <div class="btn-group pull-right">
               {!! Form::submit("删除", ['class' => 'btn btn-success']) !!}&nbsp;
           </div>
-      
+
       {!! Form::close() !!}
         </div>
     </div>

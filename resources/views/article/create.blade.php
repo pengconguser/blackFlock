@@ -6,14 +6,17 @@
 
 @section('content')
 
+
+<script type="text/javascript" src="/js/jquery.js"></script>
 <!-- include libraries(jQuery, bootstrap) -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+{{-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> --}}
 
 <!-- include summernote css/js-->
-<link href="summernote.css" rel="stylesheet">
-<script src="summernote.js"></script>
+<link href="/css/summernote.css" rel="stylesheet">
+
+{{-- <script src="/js/summernote.js"></script> --}}
 
 
 <div class="container">
@@ -34,20 +37,20 @@
                             {{ $errors->first('title') }}
                         </small>
                     </div>
-                   
+
                     {{-- 获取创建用户的名字和id --}}
-                    <input type="hidden" name="author" value="{{ Auth::user()->name }}">	
+                    <input type="hidden" name="author" value="{{ Auth::user()->name }}">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" >
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                         {!! Form::label('content', '小博客内容') !!}
-                    {!! Form::textarea('content', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::hidden('content', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    <div class="editable"></div>
                         <small class="text-danger">
                             {{ $errors->first('content') }}
                         </small>
                     </div>
-                    <div class="editable"></div>   {{-- TODO：引入编辑器的方式有问题,日后记得修复 --}}
-             
+
 
                     <div class="btn-group pull-right">
                     {!! Form::submit("提交", ['class' => 'btn btn-success']) !!}
@@ -58,7 +61,7 @@
         </div>
     </div>
 </div>
-@stop
+
 <script type="text/javascript">
     $(function() {
         var editor = $('.editable').summernote({
@@ -85,3 +88,4 @@
         });
     });
 </script>
+@stop

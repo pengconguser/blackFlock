@@ -1,4 +1,12 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=630347cbd065ac4a7e1a",
+    "/css/app.css": "/css/app.css?id=3090429aba06b9137911",
+    "/js/jquery.js": "/js/jquery.js?id=09dd64a64ba840c31a81",
+    "/css/summernote.css": "/css/summernote.css?id=6e05f805490a6638e2c4",
+    "/css/font/summernote.eot": "/css/font/summernote.eot?id=14bc8e55432d04305746",
+    "/css/font/summernote.ttf": "/css/font/summernote.ttf?id=97c8c653e73cf479856e",
+    "/css/font/summernote.woff": "/css/font/summernote.woff?id=f3339ce9912df09f66a8",
+    "/js/summernote.js": "/js/summernote.js?id=836f4e6d69955af8c64e",
+    "/js/all.js": "/js/all.js?id=94421d46e6b028eac73e",
+    "/css/editor.css": "/css/editor.css?id=d41d8cd98f00b204e980"
 }
