@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse" style="height: 20px">
   <div class="container">
     <div class="col-md-offset-1 col-md-10">
-      <a href="/" id="logo">peng App</a>
+      <a href="/" id="logo">黑白路</a>
       <nav>
         <ul class="nav navbar-nav navbar-right">
           @if (Auth::check())
             <li><a href="/users">用户列表</a></li>
-            <li><a href="/article">小博客</a></li>
+            <li><a href="/article">小文章</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 {{ Auth::user()->name }} <b class="caret"></b>

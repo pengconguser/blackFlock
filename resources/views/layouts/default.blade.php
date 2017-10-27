@@ -1,7 +1,7 @@
 
 <html>
   <head>
-    <title>@yield('title', 'peng App') - peng	</title>
+    <title>@yield('title', 'peng App') - composer	</title>
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
