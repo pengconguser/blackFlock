@@ -147,6 +147,7 @@ chess.onclick =function(e){
      		myWin[k]++;
      		computerWin[k]=6;
            if(myWin[k]==5){
+            document.getElementById('winner').submit();
            	window.alert("你赢了!");
            	over =true;
            }

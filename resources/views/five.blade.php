@@ -15,9 +15,17 @@
       	  <div class="co-md-3">
       	  	   <div class="panel panel-default">
       	  	   	<div class="panel-body">
-      	  	   		您目前的得分：
+      	  	   		您目前的得分:{{ $user->mark }}
       	  	   	</div>
       	  	   </div>
       	  </div>
+            {!! Form::open(['method' => 'POST', 'route' => 'game.store', 'class' => 'form-horizontal','id'=>'winner']) !!}
+
+                {!! Form::hidden('winner', '1') !!}
+
+                <div class="btn-group pull-right" style="display: none;">
+                    {!! Form::submit("提交", ['class' => 'btn btn-success',]) !!}
+                </div>
+            {!! Form::close() !!}
       </div>
 @stop
