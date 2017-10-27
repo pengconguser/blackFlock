@@ -13,7 +13,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    编辑小博客
+                    编辑小文章
                 </h3>
             </div>
             <div class="panel-body">
@@ -21,13 +21,13 @@
                 	 {!! Form::open(['method' => 'PUT', 'route' => ['article.update',$article->id], 'class' => 'form-horizontal']) !!}
 
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        {!! Form::label('title', '小博客标题') !!}
+                        {!! Form::label('title', '小文章标题') !!}
                         {!! Form::text('title', $article->title, ['class' => 'form-control', 'required' => 'required']) !!}
                         <small class="text-danger">{{ $errors->first('title') }}</small>
                     </div>
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                        {!! Form::label('content', '小博客内容') !!}
+                        {!! Form::label('content', '小文章内容') !!}
                         {!! Form::hidden('content', $article->content, ['class' => 'form-control', 'required' => 'required']) !!}
                         <div class="editable"></div>
                         <small class="text-danger">{{ $errors->first('content') }}</small>

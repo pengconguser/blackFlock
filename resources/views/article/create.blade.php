@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-     创建小博客
+     创建小文章
 @stop
 
 @section('content')
@@ -24,14 +24,14 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    添加小博客
+                    添加小文章
                 </h3>
             </div>
             <div class="panel-body">
                 <div class="col-md-12">
                     {!! Form::open(['method' => 'POST', 'route' => 'article.store', 'class' => 'form-horizontal']) !!}
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        {!! Form::label('title', '小博客标题') !!}
+                        {!! Form::label('title', '小文章标题') !!}
                     {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required']) !!}
                         <small class="text-danger">
                             {{ $errors->first('title') }}
@@ -43,7 +43,7 @@
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" >
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                        {!! Form::label('content', '小博客内容') !!}
+                        {!! Form::label('content', '小文章内容') !!}
                     {!! Form::hidden('content', null, ['class' => 'form-control', 'required' => 'required']) !!}
                     <div class="editable"></div>
                         <small class="text-danger">
