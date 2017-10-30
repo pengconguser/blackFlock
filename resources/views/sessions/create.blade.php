@@ -24,12 +24,17 @@
                     {{ $errors->first('email') }}
                 </small>
             </div>
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                {!! Form::label('password', '密码') !!}
+{{--             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                       {!! Form::label('password', '密码') !!}
                       {!! Form::text('password', null, ['class' => 'form-control', 'required' => 'required']) !!}
                 <small class="text-danger">
                     {{ $errors->first('password') }}
                 </small>
+            </div> --}}
+            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                {!! Form::label('password', '密码') !!}
+                {!! Form::password('password', ['class' => 'form-control', 'required' => 'required']) !!}
+                <small class="text-danger">{{ $errors->first('password') }}</small>
             </div>
             <div class="checkbox">
                 <label>
