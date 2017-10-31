@@ -23,7 +23,7 @@
     <div class="jumbotron">
       <h1>peng</h1>
       <p class="lead">
-        你现在所看到的是 <a href="/article">peng小文章</a>
+        你现在所看到的是 <a href="/article">黑白路</a>
       </p>
       <p>
         一切，将从这里开始。
