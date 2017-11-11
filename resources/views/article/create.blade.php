@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.article')
 
 @section('title')
      创建小文章
@@ -7,16 +7,9 @@
 @section('content')
 
 
-<script type="text/javascript" src="/js/jquery.js"></script>
-<!-- include libraries(jQuery, bootstrap) -->
-{{-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> --}}
-
+{{-- <script type="text/javascript" src="/js/jquery.js"></script> --}}
 <!-- include summernote css/js-->
-<link href="/css/summernote.css" rel="stylesheet">
-
-{{-- <script src="/js/summernote.js"></script> --}}
+{{-- <link href="/css/summernote.css" rel="stylesheet"> --}}
 
 
 <div class="container">
@@ -38,14 +31,20 @@
                         </small>
                     </div>
 
+
+                    <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                        {!! Form::label('category_id', '分类选择') !!}
+                        {!! Form::select('category_id', $categorys, null, ['id' => 'category_id', 'class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('category_id') }}</small>
+                    </div>
+
                     {{-- 获取创建用户的名字和id --}}
                     <input type="hidden" name="author" value="{{ Auth::user()->name }}">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" >
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                         {!! Form::label('content', '小文章内容') !!}
-                    {!! Form::hidden('content', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <div class="editable"></div>
+                    {!! Form::textarea('content', null, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
                         <small class="text-danger">
                             {{ $errors->first('content') }}
                         </small>
@@ -62,30 +61,30 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(function() {
-        var editor = $('.editable').summernote({
-            lang: 'zh-CN', // default: 'en-US',
-            height: 500,
-            toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ["insert", ["link","hr"]],
-                ['misc',['codeview', 'undo','redo','fullscreen']]
-              ],
-            focus:true
-          });
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+@stop
 
-        $('.editable').summernote('code',$('input[name="content"]').val());
+@section('scripts')
+    <script type="text/javascript"  src="{{ asset('js/module.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/hotkeys.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/uploader.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/simditor.js') }}"></script>
 
-        $('.editable').on('summernote.change', function(we, contents, $editable) {
-          $('input[name="content"]').val(contents);
+    <script>
+    $(document).ready(function(){
+        var editor = new Simditor({
+            textarea: $('#editor'),
+            upload:{
+                url: '{{ route('article.upload_image') }}',
+                params: { _token: '{{ csrf_token() }}' },
+                fileKey: 'upload_file',
+                connectionCount: 3,
+                leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+            },
         });
     });
-</script>
+    </script>
+
+@stop
 @stop

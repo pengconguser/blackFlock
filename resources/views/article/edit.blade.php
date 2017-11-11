@@ -5,9 +5,9 @@
 @stop
 
 @section('content')
-<script type="text/javascript" src="/js/jquery.js"></script>
-
-<link href="/css/summernote.css" rel="stylesheet">
+{{-- <script type="text/javascript" src="/js/jquery.js"></script> --}}
+{{--
+<link href="/css/summernote.css" rel="stylesheet"> --}}
 <div class="container">
     <div class="col-md-10">
         <div class="panel panel-default">
@@ -26,10 +26,15 @@
                         <small class="text-danger">{{ $errors->first('title') }}</small>
                     </div>
 
+                    <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                        {!! Form::label('category_id', '选择分类') !!}
+                        {!! Form::select('category_id', $categorys, $article->category_id, ['id' => 'category_id', 'class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('category_id') }}</small>
+                    </div>
+
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                         {!! Form::label('content', '小文章内容') !!}
-                        {!! Form::hidden('content', $article->content, ['class' => 'form-control', 'required' => 'required']) !!}
-                        <div class="editable"></div>
+                        {!! Form::textarea('content', $article->content, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
                         <small class="text-danger">{{ $errors->first('content') }}</small>
                     </div>
 
@@ -44,30 +49,30 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(function() {
-        var editor = $('.editable').summernote({
-            lang: 'zh-CN', // default: 'en-US',
-            height: 500,
-            toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ["insert", ["link","hr"]],
-                ['misc',['codeview', 'undo','redo','fullscreen']]
-              ],
-            focus:true
-          });
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+@stop
 
-        $('.editable').summernote('code',$('input[name="content"]').val());
+@section('scripts')
+    <script type="text/javascript"  src="{{ asset('js/module.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/hotkeys.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/uploader.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/simditor.js') }}"></script>
 
-        $('.editable').on('summernote.change', function(we, contents, $editable) {
-          $('input[name="content"]').val(contents);
+    <script>
+    $(document).ready(function(){
+        var editor = new Simditor({
+            textarea: $('#editor'),
+            upload:{
+                url: '{{ route('article.upload_image') }}',
+                params: { _token: '{{ csrf_token() }}' },
+                fileKey: 'upload_file',
+                connectionCount: 3,
+                leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+            },
         });
     });
-</script>
+    </script>
+
+@stop
 @stop

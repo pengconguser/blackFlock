@@ -37,6 +37,10 @@ Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('f
 
 //小博客模块,用来记录我自己写的一些小博客
 Route::resource('/article', 'ArticleController');
+Route::post('/article/save', 'ArticleController@image_save')->name('article.upload_image');
 
 //小游戏控制器
 Route::resource('/game', 'GamesController');
+
+//category resource
+Route::resource('/category', 'CategoryController');

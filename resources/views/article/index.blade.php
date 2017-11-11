@@ -1,42 +1,39 @@
-@extends('layouts.default')
+@extends('layouts.article')
 
-@section('title')
-     小文章
-@stop
+@section('title', isset($category) ? $category->name : '话题列表')
 
 @section('content')
-    <div class="container">
-       @include('shared._errors')
-       <div class="col-md-8">
-         <div class="panel panel-info">
-         	<div class="panel-heading">
-         		<h3 class="panel-title">最新的一些小文章</h3>
-         	</div>
-         	<div class="panel-body">
-         	    @foreach($articles as $article)
-         	      @include('article.layouts._article')
-         	    @endforeach
-         	</div>
-         </div>
-       </div>
 
-        <div class="col-md-3">
-        	<div class="panel panel-success">
-        		<div class="panel-heading">
-        			<h3 class="panel-title">热门的小文章哦！</h3>
-        		</div>
-        		<div class="panel-body">
-        			@foreach($data['hits'] as $da)
-                         <div class="list-group">
-                             <a href="/article/{{ $da->id }}" class="list-group-item active">
-                                 <h4 class="list-group-item-heading">{{ $da->title }}</h4>
-                                 <p class="list-group-item-text">{{ str_limit(strip_tags($da->content),50) }}</p>
-                             </a>
-                         </div>
-                    <hr>
-                    @endforeach
-        		</div>
-        	</div>
+<div class="row">
+    <div class="col-lg-9 col-md-9 topic-list">
+
+        @if (isset($category))
+            <div class="alert alert-info" role="alert">
+                {{ $category->name }} ：{{ $category->description }}
+            </div>
+        @endif
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <ul class="nav nav-pills">
+                   <li class="{{ active_class(( ! if_query('order', 'recent') )) }}"><a href="{{ Request::url() }}?order=default">最后回复</a></li>
+                    <li class="{{ active_class(if_query('order', 'recent')) }}"><a href="{{ Request::url() }}?order=recent">最新发布</a></li>
+                </ul>
+            </div>
+
+            <div class="panel-body">
+                {{-- 话题列表 --}}
+                @include('article.layouts._article_list', ['articles' => $articles])
+                {{-- 分页 --}}
+                {!! $articles->render() !!}
+            </div>
         </div>
-   </div>
-@stop
+    </div>
+
+    <div class="col-lg-3 col-md-3 sidebar">
+        @include('article.layouts._article')
+    </div>
+</div>
+
+@endsection

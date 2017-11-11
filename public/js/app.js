@@ -42143,10 +42143,18 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/sass/article.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/app.js");
+__webpack_require__("./resources/assets/sass/article.scss");
 module.exports = __webpack_require__("./resources/assets/sass/app.scss");
 
 
