@@ -16,7 +16,7 @@
                     <img alt="{{ $users->name }}" class="gravatar" src="{{ $users->gravatar('200') }}"/>
                 </a>
             </div>
-            <form action="{{ route('users.update', $users->id )}}" method="POST">
+            <form action="{{ route('users.update', $users->id )}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                 {{ method_field('PATCH') }}
             {{ csrf_field() }}
                 <div class="form-group">
@@ -46,6 +46,16 @@
                     </label>
                     <input class="form-control" name="password_confirmation" type="password" value="{{ old('password_confirmation') }}">
                     </input>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="avatar-label">用户头像</label>
+                    <input type="file" name="avatar">
+
+                    @if($users->avatar)
+                        <br>
+                        <img class="thumbnail img-responsive" src="{{ $users->avatar }}" width="200" />
+                    @endif
                 </div>
                 <button class="btn btn-primary" type="submit">
                     更新

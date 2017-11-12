@@ -16,7 +16,7 @@
                             {{ $article->title }}
                         </a>
                         <a class="pull-right" href="{{ route('article.show', [$article->id]) }}" >
-                            <span class="badge"> {{ $article->created_at }} </span>
+                            <span class="badge"> {{ $article->hits }} </span>
                         </a>
                     </div>
 

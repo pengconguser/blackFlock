@@ -24,7 +24,7 @@
                 <div class="col-md-12">
                     {!! Form::open(['method' => 'POST', 'route' => 'article.store', 'class' => 'form-horizontal']) !!}
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        {!! Form::label('title', '小文章标题') !!}
+                        {!! Form::label('title', '文章标题') !!}
                     {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required']) !!}
                         <small class="text-danger">
                             {{ $errors->first('title') }}
@@ -43,7 +43,7 @@
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" >
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                        {!! Form::label('content', '小文章内容') !!}
+                        {!! Form::label('content', '文章内容') !!}
                     {!! Form::textarea('content', null, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
                         <small class="text-danger">
                             {{ $errors->first('content') }}

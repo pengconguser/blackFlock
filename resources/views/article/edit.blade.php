@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.article')
 
 @section('title')
      编辑{{ $article->title }}
@@ -21,7 +21,7 @@
                 	 {!! Form::open(['method' => 'PUT', 'route' => ['article.update',$article->id], 'class' => 'form-horizontal']) !!}
 
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        {!! Form::label('title', '小文章标题') !!}
+                        {!! Form::label('title', '文章标题') !!}
                         {!! Form::text('title', $article->title, ['class' => 'form-control', 'required' => 'required']) !!}
                         <small class="text-danger">{{ $errors->first('title') }}</small>
                     </div>
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                        {!! Form::label('content', '小文章内容') !!}
+                        {!! Form::label('content', '文章内容') !!}
                         {!! Form::textarea('content', $article->content, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
                         <small class="text-danger">{{ $errors->first('content') }}</small>
                     </div>

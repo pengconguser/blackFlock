@@ -61,7 +61,7 @@ class ArticleController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		$article = Article::find($id);
+		$article = Article::findOrFail($id);
 		if ($article->hits) {
 			$hit = $article->hits; //该方法被调用默认文章受到了一次点击.
 			$hit++;
@@ -106,6 +106,7 @@ class ArticleController extends Controller {
 		if ($article) {
 			$article->title = $request->title;
 			$article->content = $request->content;
+			$article->category_id = $request->category_id;
 			$article->update();
 			session()->flash('success', '编辑成功!');
 			return redirect('/article');
