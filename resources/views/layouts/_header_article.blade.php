@@ -53,17 +53,15 @@
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             编辑资料
                             </a></li>
+                            <li><a href="/game">
+                            <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+                            五子棋小游戏
+                            </a></li>
                             <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                                <a href="/">
                                     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                                    退出登录
+                                    退出社区到首页
                                 </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
                             </li>
                         </ul>
                     </li>

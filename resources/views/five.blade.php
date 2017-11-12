@@ -1,16 +1,14 @@
-@extends('layouts.default')
+@extends('layouts.article')
 
 @section('title')
       五子棋
 @stop
 
 @section('content')
-     <link rel="stylesheet" type="text/css" href="/css/five.css">
 
       <div class="container">
       	  <div class="col-md-9">
       	 <canvas id="chess" width="450px" height="450px"></canvas>
-          <script type="text/javascript" src="/js/five.js"></script>
       	  </div>
       	  <div class="co-md-3">
       	  	   <div class="panel panel-default">
@@ -28,4 +26,10 @@
                 </div>
             {!! Form::close() !!}
       </div>
+@section('styles')
+<link rel="stylesheet" type="text/css" href="/css/five.css">
+@stop
+@section('scripts')
+<script type="text/javascript" src="/js/five.js"></script>
+@stop
 @stop
