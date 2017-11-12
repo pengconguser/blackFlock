@@ -62,12 +62,11 @@ class ArticleController extends Controller {
 	 */
 	public function show($id) {
 		$article = Article::findOrFail($id);
-		if ($article->hits) {
-			$hit = $article->hits; //该方法被调用默认文章受到了一次点击.
-			$hit++;
-			$article->hits = $hit;
-			$article->update();
-		}
+		$hit = $article->hits; //该方法被调用默认文章受到了一次点击.
+		$hit++;
+		$article->hits = $hit;
+		$article->update();
+
 		return view('article.show')->withArticle($article);
 	}
 

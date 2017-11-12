@@ -21,7 +21,6 @@
               </ul>
             </li>
           @else
-          <li><a href="/article">小博客</a></li>
           <li><a href="/help">帮助</a></li>
           <li><a href="/login">登录</a></li>
           @endif
