@@ -84,4 +84,7 @@ class User extends Authenticatable {
 	public function isFollowing($user_id) {
 		return $this->followings->contains($user_id);
 	}
+	public function comments(){
+		return $this->hasMany(\App\Comment::class);
+	}
 }
