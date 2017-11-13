@@ -6,12 +6,6 @@
 
 @section('content')
 
-
-{{-- <script type="text/javascript" src="/js/jquery.js"></script> --}}
-<!-- include summernote css/js-->
-{{-- <link href="/css/summernote.css" rel="stylesheet"> --}}
-
-
 <div class="container">
     <div class="col-md-10">
         <div class="panel panel-default">
