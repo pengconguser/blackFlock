@@ -32,10 +32,10 @@ class User extends Authenticatable {
 		'password', 'remember_token',
 	];
 
-	public function gravatar() {
+	public function gravatar($id) {
 		// $hash = md5(strtolower(trim($this->attributes['email'])));
 		// return "http://www.gravatar.com/avatar/$hash?s=$size";
-		$user = Auth::user();
+		$user = User::findOrFail($id);
 		if ($user->avatar) {
 			return $user->avatar;
 		} else {
@@ -84,7 +84,7 @@ class User extends Authenticatable {
 	public function isFollowing($user_id) {
 		return $this->followings->contains($user_id);
 	}
-	public function comments(){
+	public function comments() {
 		return $this->hasMany(\App\Comment::class);
 	}
 }
