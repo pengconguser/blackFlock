@@ -11,11 +11,6 @@
         </div>
         <div class="panel-body">
             @include('shared._errors')
-            <div class="gravatar_edit">
-                <a href="http://gravatar.com/emails" target="_blank">
-                    <img alt="{{ $users->name }}" class="gravatar" src="{{ $users->gravatar($user->id) }}"/>
-                </a>
-            </div>
             <form action="{{ route('users.update', $users->id )}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                 {{ method_field('PATCH') }}
             {{ csrf_field() }}

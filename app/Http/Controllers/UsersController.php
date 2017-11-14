@@ -78,7 +78,7 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id) {
-		$users = User::find($id);
+		$users = User::findOrFail($id);
 		if ($users) {
 			$this->authorize('update', $users);
 			return view('user.edit')->withUsers($users);
