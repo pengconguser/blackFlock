@@ -46,4 +46,4 @@ Route::resource('/game', 'GamesController');
 Route::resource('/category', 'CategoryController');
 
 //comment resource
-Route::resource('/comment', 'CommentController');
+Route::resource('/comment', 'CommentController', ['only' => ['store', 'destroy']]);

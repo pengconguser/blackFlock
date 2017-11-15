@@ -23,7 +23,7 @@
                     </span>
                 </div>
                 <div class="comment-content">
-                    {!! $comment->content !!}
+                    {{  $comment->content }}
                 </div>
             </div>
         </div>

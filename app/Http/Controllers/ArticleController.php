@@ -67,7 +67,7 @@ class ArticleController extends Controller {
 		$article->hits = $hit;
 		$article->update();
 		//取出该文章的所有评论
-		$comments = Article::find($id)->comments()->paginate(10);
+		$comments = Article::find($id)->comments()->orderBy('id', 'desc')->paginate(10);
 
 		return view('article.show')
 			->withComments($comments)

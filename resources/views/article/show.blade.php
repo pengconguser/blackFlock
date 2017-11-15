@@ -58,7 +58,7 @@
                 {{-- 用户回复列表 --}}
         <div class="panel panel-default article-reply">
             <div class="panel-body">
-                @include('article.layouts._comment_box', ['article' => $article])
+                @includeWhen(Auth::check(), 'article.layouts._comment_box', ['article' => $article])
                 @include('article.layouts._comment_list', ['comments' => $comments])
             </div>
         </div>
