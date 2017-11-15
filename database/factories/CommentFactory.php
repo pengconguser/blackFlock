@@ -2,8 +2,13 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
-    return [
-        //
-    ];
+$factory->define(\App\Comment::class, function (Faker $faker) {
+	//随机取一个月以内的时间.
+	$time = $faker->dateTimeThisMonth();
+
+	return [
+		'content' => $faker->sentence(),
+		'created_at' => $time,
+		'updated_at' => $time,
+	];
 });

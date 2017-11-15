@@ -44,3 +44,6 @@ Route::resource('/game', 'GamesController');
 
 //category resource
 Route::resource('/category', 'CategoryController');
+
+//comment resource
+Route::resource('/comment', 'CommentController');

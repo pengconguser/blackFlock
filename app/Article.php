@@ -20,7 +20,7 @@ class Article extends Model {
 	public function user() {
 		return $this->belongsTo(\App\User::class);
 	}
-	public function comment(){
-		return $this->hasMany(\App\User::class);
+	public function comments() {
+		return $this->hasMany(\App\Comment::class);
 	}
 }
