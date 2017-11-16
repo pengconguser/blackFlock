@@ -3,7 +3,7 @@
         <div class=" media"  name="reply{{ $comment->id }}" id="comment{{ $comment->id }}">
             <div class="avatar pull-left">
                 <a href="{{ route('users.show', [$comment->user_id]) }}">
-                <img class="media-object img-thumbnail" alt="{{ $comment->user->name }}" src="{{ $comment->user->gravatar($comment->user->id) }}"  style="width:48px;height:48px;"/>
+                <img class="media-object img-thumbnail" alt="{{ $comment->user->name }}" src="{{ $comment->user->gravatar($comment->user->avatar) }}"  style="width:48px;height:48px;"/>
                 </a>
             </div>
 

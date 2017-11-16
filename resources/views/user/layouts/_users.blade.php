@@ -1,5 +1,5 @@
     <li>
-        <img alt="{{ $user->name }}" class="gravatar" src="{{ $user->gravatar($user->id) }}"/>
+        <img alt="{{ $user->name }}" class="gravatar" src="{{ $user->gravatar($user->avatar) }}"/>
         <a class="username" href="{{ route('users.show', $user->id )}}">
             {{ $user->name }}
         </a>
