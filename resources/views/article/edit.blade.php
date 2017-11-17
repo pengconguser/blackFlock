@@ -18,7 +18,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-12">
-                	 {!! Form::open(['method' => 'PUT', 'route' => ['article.update',$article->id], 'class' => 'form-horizontal']) !!}
+                	 {!! Form::open(['method' => 'PUT', 'route' => ['article.update',$article->id], 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
 
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                         {!! Form::label('title', '文章标题') !!}

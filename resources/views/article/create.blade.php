@@ -16,7 +16,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    {!! Form::open(['method' => 'POST', 'route' => 'article.store', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['method' => 'POST', 'route' => 'article.store', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                         {!! Form::label('title', '文章标题') !!}
                     {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required']) !!}
@@ -70,7 +70,7 @@
         var editor = new Simditor({
             textarea: $('#editor'),
             upload:{
-                url: '{{ route('article.upload_image') }}',
+                url: '/api/save/image',
                 params: { _token: '{{ csrf_token() }}' },
                 fileKey: 'upload_file',
                 connectionCount: 3,
