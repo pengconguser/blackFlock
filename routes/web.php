@@ -26,6 +26,8 @@ Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
 //用户动态控制,这里only可以只生成store和destroy方法
 Route::resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
+//小社区里用户的个人资料show页面
+Route::get('/article/user', 'ArticleController@show_user')->name('user.article');
 
 //用户关注情况的路由
 Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings'); //显示用户关注的人列表

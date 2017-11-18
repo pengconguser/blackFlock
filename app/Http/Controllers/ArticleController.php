@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -140,7 +141,9 @@ class ArticleController extends Controller {
 
 	}
 
-	public function image_save() {
+	public function show_user() {
+		$user = Auth::user();
+		return view('article.article_user')->withUser($user);
 
 	}
 }

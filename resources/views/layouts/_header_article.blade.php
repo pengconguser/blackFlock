@@ -46,7 +46,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/users/{{ Auth::user()->id }}">
+                            <li><a href="/article/user">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>个人面板
                              </a></li>
                             <li><a href="{{ route('users.edit',Auth::id()) }}">
