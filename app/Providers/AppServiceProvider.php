@@ -12,6 +12,8 @@ class AppServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
+		\App\Comment::observe(\App\Observer\CommentObserver::class);
+
 		Carbon::setLocale('zh');
 	}
 
