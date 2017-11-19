@@ -49,3 +49,6 @@ Route::resource('/category', 'CategoryController');
 
 //comment resource
 Route::resource('/comment', 'CommentController', ['only' => ['store', 'destroy']]);
+
+//message notice
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);

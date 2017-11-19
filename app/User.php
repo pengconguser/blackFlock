@@ -102,4 +102,11 @@ class User extends Authenticatable {
 		return $this->id == $model->user_id;
 	}
 
+	//用户执行过阅读就会删除清空notfication_count数据
+
+	public function markAsRead() {
+		$this->notification_count = 0;
+		$this->save();
+		$this->unreadNotifications->markAsRead();
+	}
 }
