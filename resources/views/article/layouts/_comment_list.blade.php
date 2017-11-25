@@ -17,9 +17,13 @@
 
                     {{-- 回复删除按钮 --}}
                     <span class="meta pull-right">
-                        <a title="删除回复">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        </a>
+                       <form action="{{ route('comment.destroy', $comment->id) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-default btn-xs pull-left">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </form>
                     </span>
                 </div>
                 <div class="comment-content">

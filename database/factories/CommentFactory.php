@@ -10,5 +10,8 @@ $factory->define(\App\Comment::class, function (Faker $faker) {
 		'content' => $faker->sentence(),
 		'created_at' => $time,
 		'updated_at' => $time,
+		'user_id' => function () {
+			return factory(App\User::class)->create()->id;
+		},
 	];
 });
