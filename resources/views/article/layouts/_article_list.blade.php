@@ -1,7 +1,7 @@
 @if (count($articles))
-
     <ul class="media-list">
         @foreach ($articles as $article)
+           {{ dd($article) }}
             <li class="media">
                 <div class="media-left">
                     <a href="{{ route('users.show', [$article->user_id]) }}">
