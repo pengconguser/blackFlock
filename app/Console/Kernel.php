@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		\App\Console\Commands\FixData::class,
+		\App\Console\Commands\Getsql::class,
 	];
 
 	/**
