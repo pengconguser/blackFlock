@@ -23,6 +23,8 @@
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 2))) }}"><a href="{{ route('category.show', 2) }}">社区公告</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 3))) }}"><a href="{{ route('category.show', 3) }}">laravel教程</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 4))) }}"><a href="{{ route('category.show', 4) }}">redis</a></li>
+                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 4))) }}"><a href="{{ route('category.show', 5) }}">mysql</a></li>
+                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 4))) }}"><a href="{{ route('category.show', 6) }}">liunx环境</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

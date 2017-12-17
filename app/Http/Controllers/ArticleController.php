@@ -18,9 +18,9 @@ class ArticleController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$articles = Article::orderBy('created_at', 'desc')->paginate(10);
+		$articles = Article::orderBy('created_at', 'desc')->with('category')->with('user')->paginate(10);
 		$data = [];
-		$data['hits'] = Article::orderBy('hits', 'desc')->paginate(5);
+		// $data['hits'] = Article::orderBy('hits', 'desc')->paginate(5);
 		return view('article.index')->withArticles($articles)->withData($data);
 	}
 

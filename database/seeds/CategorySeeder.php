@@ -31,7 +31,22 @@ class CategorySeeder extends Seeder {
 		$category=Category::firstOrNew([
                'name'=>'redis'
 	    ]);
-		$category->description = '关于redis如何使用';
+		$category->description = '关于redis技术';
 		$category->save();
+
+        
+		$category=Category::firstOrNew([
+               'name'=>'mysql'
+	    ]);
+		$category->description = '有关于mysql的各种技术';
+		$category->save();
+        
+
+		$category=Category::firstOrNew([
+               'name'=>'liunx环境'
+	    ]);
+		$category->description = 'liunx下环境配置,运维,数据加密等';
+		$category->save();
+
 	}
 }
