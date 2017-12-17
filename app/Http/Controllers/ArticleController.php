@@ -62,13 +62,12 @@ class ArticleController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		$article = Article::findOrFail($id);
-		$hit = $article->hits; //该方法被调用默认文章受到了一次点击.
-		$hit++;
-		$article->hits = $hit;
-		$article->update();
+		$article = Article::with('user')->findOrFail($id);
+		//该方法被调用默认文章受到了一次点击.
+		$article->hits++;
+		$article->update(['timestamps' => false]);
 		//取出该文章的所有评论
-		$comments = Article::find($id)->comments()->orderBy('id', 'desc')->paginate(10);
+		$comments = $article->comments()->orderBy('id', 'desc')->paginate(10);
 
 		return view('article.show')
 			->withComments($comments)

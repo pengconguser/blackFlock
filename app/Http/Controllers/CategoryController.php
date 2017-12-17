@@ -43,8 +43,8 @@ class CategoryController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		$category = Category::where('id', $id)->first();
-		$articles = Article::where('category_id', $id)->orderBy('id', 'desc')->paginate(15);
+		$category=Category::findOrFail($id);
+		$articles = $category->articles()->with('user')->with('category')->paginate(10);
 		return view('article.index')->withArticles($articles)->withCategory($category);
 	}
 

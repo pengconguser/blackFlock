@@ -39,6 +39,8 @@ class FixData extends Command {
 			$this->articleCategory();
 		}
 	}
+
+	//修复一下原本的article对象并没有category关联的问题.
 	public function articleCategory() {
 		$articles = Article::orderBy('id', 'desc')->get();
 		foreach ($articles as $article) {
