@@ -44,12 +44,16 @@
 
                 <div class="operate">
                     <hr>
+                    @if(Auth::user()->is_admin)
                     <a href="{{ route('article.edit', $article->id) }}" class="btn btn-default btn-xs" role="button">
                         <i class="glyphicon glyphicon-edit"></i> 编辑
                     </a>
-                    <a href="#" class="btn btn-default btn-xs" role="button">
-                        <i class="glyphicon glyphicon-trash"></i> 删除
-                    </a>
+                        <form action="{{ route('article.destroy',$article->id) }}" method="POST" accept-charset="UTF-8">
+                             {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                           <button type="submit" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-trash"></i> 删除</button>
+                        </form>
+                    @endif
                 </div>
 
             </div>
