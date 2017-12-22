@@ -86,14 +86,17 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         $user  = Auth::user();
         $reult = $id == $user->id;
         $admin = $user->is_admin;
         if ($reult || $admin) {
-            $article   = Article::find($id);
+            $article   = Article::findOrFail($id);
             $categorys = Category::all()->pluck('name', 'id');
+            if($request->get('clear')){
+            	$article->content="";
+            }
             return view('article.edit')
                 ->withArticle($article)
                 ->withCategorys($categorys)
