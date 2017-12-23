@@ -49,7 +49,7 @@ class ArticleController extends Controller
     {
 
         $this->validate($request, [
-            'title'   => 'required|max:20',
+            'title'   => 'required|max:40',
             'author'  => 'required',
             'content' => 'required',
         ]);
