@@ -18,3 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/save/image', 'Api\ImageController@save')->name('article.upload_image');
+
+//ArticleCommend
+Route::get('/article/commend','Api\ArticleController@commend');

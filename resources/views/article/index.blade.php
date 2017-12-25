@@ -33,6 +33,8 @@
 
     <div class="col-lg-3 col-md-3 sidebar">
         @include('article.layouts._article')
+        
+        <article-commend></article-commend>
     </div>
 </div>
 
