@@ -20,6 +20,8 @@ class CreateArticlesTable extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('hits')->default(0);
             $table->longtext('content');
+            $table->integer('category_id');
+            $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }
