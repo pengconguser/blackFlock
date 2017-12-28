@@ -1,18 +1,18 @@
 @if (count($comments))
 
 <ul class="list-group">
-    @foreach ($comments as $reply)
+    @foreach ($comments as $comment)
         <li class="list-group-item">
-            <a href="{{$reply->article->id}}">
-                {{ $reply->article->title }}
-            </a>
 
+            <a href="{{$comment->article->id}}">
+                {{ $comment->article->title }}
+            </a>
             <div class="reply-content" style="margin: 6px 0;">
-                {!! $reply->content !!}
+                {!! $comment->content !!}
             </div>
 
             <div class="meta">
-                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 回复于 {{ $reply->created_at->diffForHumans() }}
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 回复于 {{ $comment->created_at->diffForHumans() }}
             </div>
         </li>
     @endforeach

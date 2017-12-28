@@ -86,7 +86,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id)
+    public function edit(Request $request, $id)
     {
         $user  = Auth::user();
         $reult = $id == $user->id;
@@ -94,8 +94,8 @@ class ArticleController extends Controller
         if ($reult || $admin) {
             $article   = Article::findOrFail($id);
             $categorys = Category::all()->pluck('name', 'id');
-            if($request->get('clear')){
-            	$article->content="";
+            if ($request->get('clear')) {
+                $article->content = "";
             }
             return view('article.edit')
                 ->withArticle($article)
@@ -142,6 +142,11 @@ class ArticleController extends Controller
         $reult   = $article->user_id == $user->id;
         $admin   = $user->is_admin;
         if ($admin || $reult) {
+            //文章关联的评论也必须全部删除
+            $comments = $article->comments;
+            foreach ($comments as $comment) {
+                $comment->delete();
+            }
             $article->delete();
             session()->flash('success', '删除成功！');
             return redirect('/article');
