@@ -23,9 +23,9 @@ class CategorySeeder extends Seeder {
 		$category->save();
 
 		$category=Category::firstOrNew([
-               'name'=>'larave教程'
+               'name'=>'正则表达式'
 	    ]);
-		$category->description = '一些关于laravel教程';
+		$category->description = '强大的处理字符串的工具';
 		$category->save();
 
 		$category=Category::firstOrNew([
@@ -48,5 +48,10 @@ class CategorySeeder extends Seeder {
 		$category->description = 'liunx下环境配置,运维,数据加密等';
 		$category->save();
 
+		$category=Category::firstOrNew([
+               'name'=>'vue.js'
+	    ]);
+		$category->description = '有关vue框架的各种知识';
+		$category->save();
 	}
 }
