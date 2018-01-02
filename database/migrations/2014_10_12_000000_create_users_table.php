@@ -20,6 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->boolean('is_admin')->default(false);
+            $table->integer('notification_count')->unsigned()->default(0);
+            $table->string('mark')->default(0);
+            
+            $table->string('avatar');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
