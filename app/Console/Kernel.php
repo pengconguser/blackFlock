@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel {
 	protected $commands = [
 		\App\Console\Commands\FixData::class,
 		\App\Console\Commands\Getsql::class,
+		\App\Console\Commands\DumpData::class,
 	];
 
 	/**
@@ -23,8 +24,9 @@ class Kernel extends ConsoleKernel {
 	 * @return void
 	 */
 	protected function schedule(Schedule $schedule) {
-		// $schedule->command('inspire')
-		//          ->hourly();
+		$schedule->command('dump:data')
+		             ->hourly()
+				     ->between('21:30', '22:00');
 	}
 
 	/**
