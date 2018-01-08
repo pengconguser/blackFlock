@@ -2,6 +2,6 @@
 
 source ~/.bash_aliases
 
-cd /data/sqlfiles
+cd /data/www/hello_laravel/public/sql
 
 mysqldump -hlocalhost -uroot -plocaldb001 laravel>laravel.sql
