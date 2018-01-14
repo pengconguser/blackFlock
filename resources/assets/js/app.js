@@ -18,6 +18,7 @@ Vue.prototype.$http = window.axios;
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('article-commend', require('./components/ArticleCommend.vue'));
+Vue.component('search', require('./components/Search.vue'));
 
 const app = new Vue({
     el: '#app'

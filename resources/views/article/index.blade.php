@@ -14,8 +14,8 @@
         @endif
 
         <div class="panel panel-default">
-
             <div class="panel-heading">
+                <search></search>
                 <ul class="nav nav-pills">
                    <li class="{{ active_class(( ! if_query('order', 'recent') )) }}"><a href="{{ Request::url() }}?order=default">最后回复</a></li>
                     <li class="{{ active_class(if_query('order', 'recent')) }}"><a href="{{ Request::url() }}?order=recent">最新发布</a></li>

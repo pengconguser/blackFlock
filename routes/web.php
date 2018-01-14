@@ -41,6 +41,9 @@ Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('f
 Route::resource('/article', 'ArticleController');
 Route::post('/article/save', 'ArticleController@image_save')->name('article.upload_image');
 
+//search
+Route::get('/search','SearchController@search');
+
 //小游戏控制器
 Route::resource('/game', 'GamesController');
 
