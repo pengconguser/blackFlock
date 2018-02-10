@@ -20,12 +20,13 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 1))) }}"><a href="{{ route('category.show', 1) }}">laravel随笔</a></li>
-                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 2))) }}"><a href="{{ route('category.show', 2) }}">社区公告</a></li>
+                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 2))) }}"><a href="{{ route('category.show', 2) }}">踩坑日记</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 7))) }}"><a href="{{ route('category.show', 7) }}">正则表达式</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 4))) }}"><a href="{{ route('category.show', 4) }}">redis</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 5))) }}"><a href="{{ route('category.show', 5) }}">mysql</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 6))) }}"><a href="{{ route('category.show', 6) }}">liunx环境</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 8))) }}"><a href="{{ route('category.show', 8) }}">vue.js</a></li>
+                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 9))) }}"><a href="{{ route('category.show', 9) }}">shell</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -53,5 +53,12 @@ class CategorySeeder extends Seeder {
 	    ]);
 		$category->description = '有关vue框架的各种知识';
 		$category->save();
+
+		$category=Category::firstOrNew([
+               'name'=>'shell'
+	    ]);
+		$category->description = 'shell 编程记录';
+		$category->save();
+
 	}
 }
