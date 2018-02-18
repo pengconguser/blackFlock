@@ -14,6 +14,10 @@ class SmsTest extends TestCase
      */
     public function testSms()
     {
-         
+       $response=$this->json('POST','/api/captcha',[
+             'phone'=>18273490350
+       ]);
+
+       $response->assertStatus(200);
     }
 }

@@ -21,3 +21,5 @@ Route::post('/save/image', 'Api\ImageController@save')->name('article.upload_ima
 
 //ArticleCommend
 Route::get('/article/commend','Api\ArticleController@commend');
+
+Route::post('/captcha','Api\SmsController@post_msg');
