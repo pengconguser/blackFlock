@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yunpian\Sdk\YunpianClient;
+use App\Http\Requests\SmsRequest;
 
 class SmsController extends Controller
 {
-    public function post_msg(Request $request)
+    public function post_msg(SmsRequest $request)
     {
         //初始化client,apikey作为所有请求的默认值
         $phone  = $request->phone;

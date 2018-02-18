@@ -23,3 +23,6 @@ Route::post('/save/image', 'Api\ImageController@save')->name('article.upload_ima
 Route::get('/article/commend','Api\ArticleController@commend');
 
 Route::post('/captcha','Api\SmsController@post_msg');
+
+//phone user
+Route::post('/user/store','Api\UsersController@store');

@@ -20,4 +20,15 @@ class SmsTest extends TestCase
 
        $response->assertStatus(200);
     }
+
+    public function testPhoneRestger(){
+      $response=$this->json('POST','/api/user/store',[
+             'phone'=>18273490350,
+             'captcha'=>8722,
+             'name'=>'shuaiqi',
+             'password'=>'940613'
+      ]);
+
+      $response->assertStatus(200);
+    }
 }
