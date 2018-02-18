@@ -41,11 +41,20 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
+
 		$this->validate($request, [
 			'name' => 'required|min:3|max:50',
 			'email' => 'required|email|unique:users|max:255',
 			'password' => 'confirmed',
-		]);
+			'captcha' => 'required|captcha',
+		],
+
+        [
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请输入正确的验证码',
+        ]
+
+	    );
 
 		$user = new User($request->all());
 		$user->password = bcrypt($user->password);
