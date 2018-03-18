@@ -21,7 +21,7 @@
     </div>
   @else
     <div class="jumbotron">
-      <h1>peng</h1>
+      <h1>黑白路</h1>
       <p class="lead">
         你现在所看到的是 <a href="/article">黑白路</a>
       </p>
