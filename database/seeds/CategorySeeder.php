@@ -60,5 +60,16 @@ class CategorySeeder extends Seeder {
 		$category->description = 'shell 编程记录';
 		$category->save();
 
+		$category=Category::firstOrNew([
+               'name'=>'python'
+	    ]);
+		$category->description = 'shell 编程记录';
+		$category->save();
+
+		$category=Category::firstOrNew([
+               'name'=>'react'
+	    ]);
+		$category->description = 'shell 编程记录';
+		$category->save();
 	}
 }

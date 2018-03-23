@@ -27,6 +27,8 @@
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 6))) }}"><a href="{{ route('category.show', 6) }}">liunx环境</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 8))) }}"><a href="{{ route('category.show', 8) }}">vue.js</a></li>
                 <li class="{{ active_class((if_route('category.show') && if_route_param('category', 9))) }}"><a href="{{ route('category.show', 9) }}">shell</a></li>
+                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 10))) }}"><a href="{{ route('category.show', 10) }}">python</a></li>
+                <li class="{{ active_class((if_route('category.show') && if_route_param('category', 11))) }}"><a href="{{ route('category.show', 11) }}">react</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
