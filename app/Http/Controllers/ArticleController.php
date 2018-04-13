@@ -71,7 +71,7 @@ class ArticleController extends Controller
         $article = Article::with('user')->findOrFail($id);
         //该方法被调用默认文章受到了一次点击.
         $article->hits++;
-        $article->update(['timestamps' => false]);
+        $article->save(['timestamp' => false]);
         //取出该文章的所有评论
         $comments = $article->comments()->with('user')->orderBy('id', 'desc')->paginate(10);
 
