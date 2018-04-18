@@ -55,3 +55,9 @@ Route::resource('/comment', 'CommentController', ['only' => ['store', 'destroy']
 
 //message notice
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+
+//Socket
+Route::get('/socket','socketController@index');
+Route::get('/socket/massage','socketController@writeMessage');
+Route::post('/socket/massage','socketController@sendMessage')->name('sendMassage');
