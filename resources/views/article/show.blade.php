@@ -44,7 +44,7 @@
 
                 <div class="operate">
                     <hr>
-                    @if(Auth::user()->is_admin)
+                    @if(Auth::check() && Auth::user()->is_admin)
                     <a href="{{ route('article.edit', $article->id) }}" class="btn btn-default btn-xs" role="button">
                         <i class="glyphicon glyphicon-edit"></i> 编辑
                     </a>
