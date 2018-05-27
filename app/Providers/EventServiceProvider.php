@@ -28,6 +28,13 @@ class EventServiceProvider extends ServiceProvider {
 	public function boot() {
 		parent::boot();
 
-		//
+		Event::listen('laravels.received_request', function (\Illuminate\Http\Request $req, $app) {
+			    $req->query->set('get_key', 'peng');// 修改querystring
+			    $req->request->set('post_key', 'peng'); // 修改post body
+		});
+
+		Event::listen('laravels.generated_response', function (\Illuminate\Http\Request $req, \Symfony\Component\HttpFoundation\Response $rsp, $app) {
+			    $rsp->headers->set('header-key', 'peng');// 修改header
+		});
 	}
 }
