@@ -164,7 +164,7 @@ return [
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
- 		Hhxsv5\LaravelS\Illuminate\LaravelSServiceProvider::class,
+ 		// Hhxsv5\LaravelS\Illuminate\LaravelSServiceProvider::class,
 		/*
 			         * Package Service Providers...
 		*/
