@@ -34,7 +34,8 @@
 
                     <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                         {!! Form::label('content', '文章内容') !!}
-                        {!! Form::textarea('content', $article->content, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!}
+                        {{-- {!! Form::textarea('content', $article->content, ['class' => 'form-control', 'required' => 'required','id'=>'editor']) !!} --}}
+                        <textarea name="content" id="editor" class="form-control" required="required">{!! $article->content !!}</textarea>
                         <small class="text-danger">{{ $errors->first('content') }}</small>
                     </div>
 
