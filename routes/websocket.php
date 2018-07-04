@@ -26,4 +26,6 @@ Websocket::on('example', function ($websocket, $data) {
     $websocket->emit('message', $data);
 });
 
+Websocket::on('massageSend','swooleMassageController@main');
+
 // Websocket::on('test', 'ExampleController@method');
