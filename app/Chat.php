@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
     protected $fillable=[
-    	 'userIds'
+    	 'name',
+    	 'userIds',
+    	 'lastMassage',
     ];
 
     public function massages()

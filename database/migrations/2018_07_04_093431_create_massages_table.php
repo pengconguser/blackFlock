@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChatsTable extends Migration
+class CreateMassagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateChatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chats', function (Blueprint $table) {
+        Schema::create('massages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable()->comment('聊天室的名称');
-            $table->string('userIds')->comment('该聊天室存在的用户');
-            $table->string('lastMassage')->nullable()->comment('最后一条发送的聊天数据');
+            $table->integer('chat_id')->comment('该消息所属聊天室的id');
+            $table->string('content')->comment('聊天消息');
+            $table->integer('user_id')->comment('该消息所属用户');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateChatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chats');
+        Schema::dropIfExists('massages');
     }
 }
