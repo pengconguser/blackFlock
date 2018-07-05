@@ -20,6 +20,25 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('article-commend', require('./components/ArticleCommend.vue'));
 Vue.component('search', require('./components/Search.vue'));
 
+Vue.component('composer', require('./components/Chat/ChatMenu.vue'));
+
+
+//passport token
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue')
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue')
+);
+
 const app = new Vue({
     el: '#app'
 });

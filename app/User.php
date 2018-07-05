@@ -5,11 +5,12 @@ namespace App;
 use App\Status;
 use App\User;
 use Auth;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable {
-	use Notifiable {
+	use HasApiTokens, Notifiable {
 		notify as protected laravelNotify;
 	}
 

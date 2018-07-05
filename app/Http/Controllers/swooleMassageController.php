@@ -21,16 +21,18 @@ class swooleMassageController extends Controller
         $with_user=User::findOrFail($with_id);
 
         //检查聊天室是否创建 默认单人私聊
-        if ($request->chatIds) {
-            $chat          = new Chat();
-            $chat->name =$request->chatName?:$user->name.'和'$with_user->name.'的聊天室';
-            $chat->userIds = [
-                $user->id,
-                $with_id,
-            ];
+        // if ($request->chatIds) {
+        //     $chat          = new Chat();
+        //     $chat->name =$request->chatName?:$user->name.'和'$with_user->name.'的聊天室';
+        //     $chat->userIds = [
+        //         $user->id,
+        //         $with_id,
+        //     ];
 
-            $chat->save();
-        }
+        //     $chat->save();
+        // }
+
+        //向客户端发送更新消息
 
         $webwebsocket->emit($massage, $data);
 

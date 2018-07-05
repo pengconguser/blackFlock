@@ -53,9 +53,13 @@ Route::resource('/category', 'CategoryController');
 //comment resource
 Route::resource('/comment', 'CommentController', ['only' => ['store', 'destroy']]);
 
-//message notice
+//message vue components
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
+//消息控制路由
+Route::get('/chat',function(){
+	 return view('chat.chats');
+})->middleware('auth');
 
 //Socket
 Route::get('/socket','socketController@index');

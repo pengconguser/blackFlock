@@ -26,3 +26,7 @@ Route::post('/captcha','Api\SmsController@post_msg');
 
 //phone user
 Route::post('/user/store','Api\UsersController@store');
+
+ //chat api
+Route::get('/chats','Api\ChatController@getChats');
+
