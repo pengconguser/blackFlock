@@ -19,7 +19,7 @@
 </div>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="/js/jquery.cookie.js" ></script>>
+    <script src="/js/jquery.cookie.js" ></script>
 
     @stack('scripts')
   </body>

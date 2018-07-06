@@ -18,6 +18,9 @@ export default {
   methods:{
       fetchData(){
            var api='/api/chats';
+           let Authorization="Bearer"+" "+window.getAcccessToken();
+           let Accept="application/json";
+           
            window.axios.get(api).then((response)=>{
                  this.que=response.data;
            });

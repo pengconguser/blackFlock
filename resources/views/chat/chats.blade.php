@@ -4,7 +4,7 @@
 
 
 @section('content')
-		{{-- <composer/> --}}
+		<composer/>
 
 		{{-- <passport-authorized-clients/> --}}
 @stop
