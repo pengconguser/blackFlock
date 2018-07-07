@@ -62,7 +62,6 @@
     {{-- 为登录用户生成access_token --}}
     <script type="text/javascript">
        $('.form-horizontal').submit(function(e){
-            if(!$.cookie('access_token')){
                  $.ajax({
                     type:'POST',
                     contentType: "application/json",
@@ -75,19 +74,19 @@
                              // "platform": "app",
                              "grant_type": "password",
                              "client_id": 2,
-                             "client_secret": "8CSszE7wmvBhB2q5tmCxbyYFwqSf6F3xsub3DFPB",
+                             "client_secret": "{{ $client->secret }}",
                           }
                     ),
 
                     success(response) {                  
-                       $.cookie('access_token',response.access_token);
+                       localStorage.setItem('access_token',response.access_token);
                     },
 
                     error(error){
                        console.log(error);
                     }
                  })
-            }
+               // e.preventDefault();
        });
     </script>
 @endpush

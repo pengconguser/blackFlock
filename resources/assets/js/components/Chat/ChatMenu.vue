@@ -19,9 +19,15 @@ export default {
       fetchData(){
            var api='/api/chats';
            let Authorization="Bearer"+" "+window.getAcccessToken();
+           console.log(Authorization);
            let Accept="application/json";
            
-           window.axios.get(api).then((response)=>{
+           window.axios.get(api,{
+              headers:{
+                'Authorization':Authorization,
+                'Accept':Accept
+            }
+           }).then((response)=>{
                  this.que=response.data;
            });
       }

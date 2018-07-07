@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use DB;
 
 class SessionsController extends Controller
 {
@@ -13,7 +14,8 @@ class SessionsController extends Controller
     }
     public function create()
     {
-        return view('sessions.create');
+        $client=DB::table('oauth_clients')->where('id',2)->first();
+        return view('sessions.create')->withClient($client);
     }
     public function store(Request $request)
     {
