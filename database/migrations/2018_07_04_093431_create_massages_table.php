@@ -13,7 +13,7 @@ class CreateMassagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('massages', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('chat_id')->comment('该消息所属聊天室的id');
             $table->string('content')->comment('聊天消息');

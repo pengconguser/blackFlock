@@ -17,7 +17,7 @@ class CreateChatsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable()->comment('聊天室的名称');
             $table->string('userIds')->comment('该聊天室存在的用户');
-            $table->string('lastMassage')->nullable()->comment('最后一条发送的聊天数据');
+            $table->string('lastMessage')->nullable()->comment('最后一条发送的聊天数据');
             $table->timestamps();
         });
     }
