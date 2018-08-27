@@ -30,6 +30,8 @@ Route::post('/user/store','Api\UsersController@store');
  //chat api
 Route::get('/chats','Api\ChatController@getChats');
 
+//获取验证码
+Route::get('/get-check-user','Api\CheckController@get_user');
 //验证api服务器 用于登陆验证
 Route::post('/check-user','Api\CheckController@check_user');
 
