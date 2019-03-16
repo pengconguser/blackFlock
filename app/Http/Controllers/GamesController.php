@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class GamesController extends Controller {
 	public function __construct() {
-		$this->middleware('auth');
+		$this->middleware('auth')->except('huaninfo');
 	}
 	public function index() {
 		$user = Auth::user();
@@ -22,5 +22,11 @@ class GamesController extends Controller {
 			$user->save();
 			return redirect()->to('/game');
 		}
+	}
+
+
+	public function huaninfo()
+	{
+		return view('huan.huanLove');
 	}
 }

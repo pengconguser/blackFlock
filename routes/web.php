@@ -46,6 +46,8 @@ Route::get('/search','SearchController@search');
 
 //小游戏控制器
 Route::resource('/game', 'GamesController');
+//love
+Route::get('/huan','GamesController@huaninfo');
 
 //category resource
 Route::resource('/category', 'CategoryController');
