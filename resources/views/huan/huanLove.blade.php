@@ -20,7 +20,7 @@
 		<div id="content" style="width: 1160px; height: 625px; margin-top: 52px; margin-left: 220px;">
 			<div id="code" style="margin-top: 62.5px;">
 			
-				Boy * i = <span class="keyword">new</span> Boy(<span class="string">"BlahGeek"</span>);<br>
+				Boy * i = <span class="keyword">new</span> Boy(<span class="string">"shuang"</span>);<br>
 				<span class="comments">// 被实例化的我. </span><br>
 				huan * u ;<br>
 				<span class="keyword">while</span> (true) {<br>
