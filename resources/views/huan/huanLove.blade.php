@@ -40,7 +40,7 @@
 							<span class="placeholder"><span class="placeholder"><span class="keyword">case</span><span class="string">"hungry"</span>: i-&gt;feed(u);break; <br>
 					<span class="placeholder"><span class="placeholder"><span class="keyword">case</span><span class="string">"tired"</span>: i-&gt;hug(u);break; <br>
 					<span class="placeholder"><span class="placeholder"><span class="keyword">case</span><span class="string">"sleepy"</span>: i-&gt;sleep(u);break; <br>
-					<span class="placeholder"><span class="placeholder"><span class="keyword">default</span>: i-&gt;say(u,<span class="string">"I Love U"</span>);break; <br>
+					<span class="placeholder"><span class="placeholder"><span class="keyword">default</span>: i-&gt;say(u,<span class="string">"miss U"</span>);break; <br>
 					<span class="placeholder"><span class="placeholder">}<br>
 					<span class="placeholder">}<br>
 				}<br>
